@@ -1,19 +1,29 @@
-GET http://localhost:3000/subscribers
+
+GET http://localhost:3000/posts
 
 ###
 
-POST http://localhost:3000/subscribers
+POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "name": "Arvids Answer from Server",
-    "subscribedChannel": "Magic Channel"
+    "author": "Arvid",
+    "content": "Wieviel kosten roten Rosen?"
 }
 
 ###
 
-GET http://localhost:3000/subscribers/5e302cf03294f92cf82ec8a1
+GET http://localhost:3000/subscribers/5e393e50d19d701d1087b35b
 
 ###
 
-DELETE http://localhost:3000/subscribers/5e302cd93294f92cf82ec8a0
+DELETE http://localhost:3000/posts/5e393e50d19d701d1087b35b
+
+###
+
+PATCH http://localhost:3000/posts/5e393e50d19d701d1087b35b
+Content-Type: application/json
+
+{
+    "likedBy": ["Marco", "Rayk"]
+}

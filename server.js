@@ -16,7 +16,7 @@ db.once("open", () => console.log("connected to database"));
 app.use(cors());
 app.use(express.json());
 
-const subscribersRouter = require("./routes/subscribers");
-app.use("/subscribers", subscribersRouter);
+const postsRouter = require("./routes/posts");
+app.use("/posts", postsRouter);
 
 app.listen(3000, () => console.log("server started"));
