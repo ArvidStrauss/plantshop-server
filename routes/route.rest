@@ -1,29 +1,34 @@
 
+### GET ALL POSTS
+
 GET http://localhost:3000/posts
 
-###
+### CREATE ONE POST
 
 POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "author": "Arvid",
-    "content": "Wieviel kosten roten Rosen?"
+    "author": "Romy",
+    "content": "Kann man Tulpen und Rosen zusammen züchten?",
+    "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/romy_m2k0mf.jpg"
 }
 
-###
+### GET ONE POST
 
-GET http://localhost:3000/subscribers/5e393e50d19d701d1087b35b
+GET http://localhost:3000/posts/5e393e50d19d701d1087b35b
 
-###
+### DELETE ONE POST
 
-DELETE http://localhost:3000/posts/5e393e50d19d701d1087b35b
+DELETE http://localhost:3000/posts/5e3949201d935e02fc9bfc4d
 
-###
+### UPDATE ONE POST
 
-PATCH http://localhost:3000/posts/5e393e50d19d701d1087b35b
+PATCH http://localhost:3000/posts/5e395898c6595c0d2ca6dbc3
 Content-Type: application/json
 
 {
-    "likedBy": ["Marco", "Rayk"]
+    "likedBy": ["Marco", "Rayk"],
+    "countOfHelpful": 5,
+    "replies": [ { "author": "Lena", "content": "2mal reicht", "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/lena_p2lehu.jpg"}, { "author": "Arvid", "content": "eher 4 mal", "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/arvid_jjpgby.jpg"}]
 }

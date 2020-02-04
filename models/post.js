@@ -26,8 +26,11 @@ const postSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 0
+  },
+  img: {
+    type: String,
+    required: true
   }
 });
 
-//exporting our subscriber schema
 module.exports = mongoose.model("Post", postSchema);

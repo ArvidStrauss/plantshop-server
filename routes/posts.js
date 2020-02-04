@@ -21,7 +21,8 @@ router.get("/:id", getPost, async (req, res) => {
 router.post("/", async (req, res) => {
   const post = new Post({
     author: req.body.author,
-    content: req.body.content
+    content: req.body.content,
+    img: req.body.img
   });
 
   try {
@@ -37,12 +38,17 @@ router.patch("/:id", getPost, async (req, res) => {
   if (req.body.author != null) {
     res.post.author = req.body.author;
   }
-
   if (req.body.content != null) {
     res.post.content = req.body.content;
   }
   if (req.body.likedBy != null) {
-    res.post.likedBy = req.body.likedBy;
+    res.post.likedBy.push(req.body.likedBy);
+  }
+  if (req.body.replies != null) {
+    res.post.replies.push(req.body.replies);
+  }
+  if (req.body.countOfHelpful != null) {
+    res.post.countOfHelpful = req.body.countOfHelpful;
   }
   try {
     const updatedPost = await res.post.save();
