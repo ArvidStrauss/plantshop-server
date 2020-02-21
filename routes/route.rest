@@ -30,5 +30,41 @@ Content-Type: application/json
 {
     "likedBy": ["Marco", "Rayk"],
     "countOfHelpful": 5,
-    "replies": [ { "author": "Lena", "content": "2mal reicht", "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/lena_p2lehu.jpg"}, { "author": "Arvid", "content": "eher 4 mal", "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/arvid_jjpgby.jpg"}]
+    "replies": [ 
+        { 
+            "author": "Lena", 
+            "content": "2mal reicht", 
+            "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/lena_p2lehu.jpg"
+        }, 
+        { 
+            "author": "Arvid", 
+            "content": "eher 4 mal", 
+            "img": "https://res.cloudinary.com/htw-dresden/image/upload/v1580816359/arvid_jjpgby.jpg"
+        }
+    ]
+}
+
+### GET ALL USER
+
+GET http://localhost:3000/users
+
+### CREATE ONE USER = SIGN-UP
+
+POST http://localhost:3000/users/sign-up
+Content-Type: application/json
+
+{
+    "username": "Arvid",
+    "password": "mms2017",
+    "password_repeat": "mms2017"
+}
+
+### LOG-IN OF ONE USER
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "Arvid",
+    "password": "mms2017"
 }

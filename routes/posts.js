@@ -6,7 +6,7 @@ const Post = require("../models/post");
 router.get("/", async (req, res) => {
   try {
     const posts = await Post.find();
-    res.json(posts);
+    res.status(200).json(posts);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 // Get one post
 router.get("/:id", getPost, async (req, res) => {
-  res.json(res.post);
+  res.status(200).json(res.post);
 });
 
 // Create one post
@@ -52,7 +52,7 @@ router.patch("/:id", getPost, async (req, res) => {
   }
   try {
     const updatedPost = await res.post.save();
-    res.json(updatedPost);
+    res.status(201).json(updatedPost);
   } catch {
     res.status(400).json({ message: err.message });
   }
@@ -62,7 +62,7 @@ router.patch("/:id", getPost, async (req, res) => {
 router.delete("/:id", getPost, async (req, res) => {
   try {
     await res.post.remove();
-    res.json({ message: "Deleted this Post" });
+    res.status(201).json({ message: "Deleted this Post" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
